@@ -15,65 +15,36 @@ from glob import glob
 
 
 ```python
-csv_files = glob("zippedData/*")
+# use glob to get all of the csv files
+csv_files = glob("zippedData/*.csv")
 csv_files
 ```
 
 
 
 
-    ['zippedData/imdb.title.crew.csv.gz',
-     'zippedData/tmdb.movies.csv.gz',
-     'zippedData/tmdb.movies.csv',
+    ['zippedData/tmdb.movies.csv',
      'zippedData/imdb.title.crew.csv',
-     'zippedData/rt.reviews.tsv',
      'zippedData/tn.movie_budgets.csv',
      'zippedData/imdb.title.ratings.csv',
      'zippedData/imdb.name.basics.csv',
-     'zippedData/imdb.title.akas.csv.gz',
-     'zippedData/imdb.title.ratings.csv.gz',
-     'zippedData/imdb.name.basics.csv.gz',
      'zippedData/imdb.title.principals.csv',
      'zippedData/imdb.title.akas.csv',
      'zippedData/bom.movie_gross.csv',
-     'zippedData/imdb.title.basics.csv',
-     'zippedData/rt.movie_info.tsv',
-     'zippedData/rt.reviews.tsv.gz',
-     'zippedData/imdb.title.basics.csv.gz',
-     'zippedData/rt.movie_info.tsv.gz',
-     'zippedData/tn.movie_budgets.csv.gz',
-     'zippedData/bom.movie_gross.csv.gz',
-     'zippedData/imdb.title.principals.csv.gz']
+     'zippedData/imdb.title.basics.csv']
 
 
 
 
 ```python
-filename1 = csv_files[0]
-```
-
-
-```python
-filename1
-```
-
-
-```python
+# create a dictionary with 
+# keys as csv filenames (cleaned)
+# values as their respective dataframes
 csv_files_dict = {}
 for filename in csv_files:
     filename_cleaned = os.path.basename(filename).replace(".csv", "").replace(".", "_")
     filename_df = pd.read_csv(filename, index_col=0)
     csv_files_dict[filename_cleaned] = filename_df
-```
-
-
-```python
-df_tmdb_movies = csv_files_dict['tmdb_movies']
-```
-
-
-```python
-df_tmdb_movies.head()
 ```
 
 ### Load files into sqlite database
