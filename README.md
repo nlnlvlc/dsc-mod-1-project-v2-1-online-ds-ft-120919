@@ -18,7 +18,7 @@ In this project, I was given multiple datasets
 The goal of this project is to find at least 5 insights in this data by joining tables in creative and fun ways (but also useful ways).  
 
 
-## Q1: Is there any pattern in the cast of the top 5 highest profitable movies?
+<details><summary>Q1: Is there any pattern in the cast of the top 5 highest profitable movies?</summary>
 (Extended question): Is there any relationship between genres?
 
 # Exploration (EDA)
@@ -32,3 +32,4 @@ In the image below, we can see that the top highest grossing movies when compare
 I decided to look at the distribution of **genres** across the **top 50** movies
 
 ![](images/q1-barchart.png)
+</details>
