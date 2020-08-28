@@ -1,132 +1,49 @@
 
-# Data Science - The Story of a Hollywood Hero
-
-![](images/star-wars.jpg)
-
-[Information on creating hyperlinks in jupyter found here](https://sebastianraschka.com/Articles/2014_ipython_internal_links.html) 
-
-Adding anchors will make hyperlinking waaaayyy easier
-
-convert notebook using the following command
-
-`jupyter nbconvert --to markdown notebookname.ipynb`
-
-
-### Outline
-* [Goals and Overview](##goals-and-overview)
-* [Final Thoughts](#final)
+# Prelaunch Movie Studio Market Analysis
 
 ## Goals and Overview
 
-In this project, I was given multiple datasets
-* /zippedData/tmdb.movies.csv
-* /zippedData/imdb.title.crew.csv
-* /zippedData/tn.movie_budgets.csv
-* /zippedData/imdb.title.ratings.csv
-* /zippedData/imdb.name.basics.csv
-* /zippedData/imdb.title.principals.csv
-* /zippedData/imdb.title.akas.csv
-* /zippedData/bom.movie_gross.csv
-* /zippedData/imdb.title.basics.csv
-
-The goal of this project is to find at least 5 insights in this data by joining tables in creative and fun ways (but also useful ways).
+The goal of this project is to identify key insights and trends in within the movie industry in order to advise an emerging studio. This analysis will draw on multiple datasets from multiple sources including IMDB and the MovieDB.
 
 
 ------
 
-<details><summary><span style="font-size:18pt; font-weight:bold">Q1: Is there any pattern in the cast of the top 5 highest profitable movies?</span><br><span style="font-size:14pt">(Extended question): Is there any relationship between genres?</span></summary>
+## Q1: Is there any pattern between the profitability of a film and the date/year/month it is released?
+
+### Findings
+After examining the top 10% of the most profitable films of all time, I found that a high concentration of the most profitable films are released during May, June, July, November, and December. Though December has one of the highest concetrations of most profitable films, the following month, January, has the lowest concentrations. We also see a gradual increase in average revenue earnings, when looking at mean values, the top 5%, and overall earnings over years and decades, even though the minimum values for the highest profit films have not significantly changed.
+
+### Recommendations
+
+If looking for a period of time for a film,premier it in June
+If going for a Winter release, releases during the end of winter might perform better than mid-to-late winter
+
+------
+
+## Q2: Is there any pattern between the profitability and the number of international release?
+
+### Findings
+
+After looking into the relationship between the profitability and the number of regions where a single film is released, I found that there is no apparent relationships between the two.
+
+### Next Steps
+
+* Plan on exploring further correlations between profitability and directors, studios, and international releases
+* If the number of regions where a title is theatrically released isn't a factor in profitability, plan on identifying the most profitable international regions and compare performance to domestic profit
+
+------
+
+## Q3: Is there a pattern between the studio popularity and profitability of the top films?
+
+### Findings
+
+After looking into the relationship between the most profitable and most popular movies and which studios produce them, I found that most the studios who produce the most movies
+
+### Next Steps
+
+* Plan on exploring further correlations between profitability and directors, studios, and international releases
+* If the number of regions where a title is theatrically released isn't a factor in profitability, plan on identifying the most profitable international regions and compare performance to domestic profit
+
+------
 
 
-
-# Exploration (EDA)
-In the image below, we can see that the top highest grossing movies when compared to their production budget movies are: 
-* Avatar 
-* Titanic
-* Avengers: Infinity War
-* Star Wars Ep. VII: The Force Awakens
-* Jurassic World
-
-I decided to look at the distribution of **genres** across the **top 50** movies
-
-# Some code I used to aggregate the genres by counts
-
-```python
-genre_count = {}
-for movie in top_5_budget_gross_diff_movies:
-    movie_genres = joined_df[joined_df['movie']==movie]['genres'].values[0]
-    try:
-        for genre in movie_genres:
-            genre_count[genre] = genre_count.get(genre, 0) + 1
-    except:
-        genre_count['not_listed'] = genre_count.get('not_listed', 0) + 1
-
-genre_count
-```
-
-![](images/q1-barchart.png)
-</details>
-
-### Q1: Insights/Findings/Recommendations
-
-**Findings**
-
-After examining the top 50 movies for gross/budget difference, I found that the most represented genres were *Adventures, Action and Sci-Fi*.  Of the top 50 movies, 15 movies did not have genre data available. The lowest represented genres were *Romance, Music, Biography, Horror*.  
-
-**Recommendations**
-* Collect genre information for all movies
-* If creating a movie in the lowest performing genres, do not expect to gross over the budget.  
-* If aiming at high gross, create action adventures movies.
-
-
-**Next Steps**
-* Plan on adding directors, actors, seasons to this data to see if anything else correlates with high performance.  
-* If possible, gather missing movie information.
-
------
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-## Final Thoughts  <a class="anchor" id="final"></a>
-
-
-```python
-
-```
