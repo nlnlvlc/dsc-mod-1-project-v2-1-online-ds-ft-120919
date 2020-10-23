@@ -2,5 +2,5 @@
 zippedData/
 zippedData/*.csv
 zippedData/*.gz
-*.ipynb_checkpoints
+*.ipynb_checkpoints/
 *.learn
